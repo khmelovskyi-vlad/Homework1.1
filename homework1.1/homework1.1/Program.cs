@@ -15,19 +15,19 @@ namespace homework1._1
             var randomNumber = CreatRandomNumber(rand);
             var userInput = ReadPos("your number");
             int tryCounter = 1;
-            do
+            while (userInput != randomNumber)
             {
                 if (userInput > randomNumber)
                 {
                     Console.WriteLine("Your number is bigger than computer number");
                 }
-                else
+                else if (userInput < randomNumber)
                 {
                     Console.WriteLine("Your number is small than computer number");
                 }
                 userInput = ReadPos("your number again");
                 tryCounter++;
-            } while (userInput != randomNumber);
+            } 
             Console.WriteLine("You are right");
             Console.WriteLine($"The number of attempts is: {tryCounter}");
             Console.Read();
@@ -35,14 +35,14 @@ namespace homework1._1
 
         private static int CreatRandomNumber(Random rend)
         {
-            var startPos = ReadPos("intirial range");
-            var endPos = ReadPos("end range");
             while (true)
             {
+            var startPos = ReadPos("intirial range");
+            var endPos = ReadPos("end range");
                 try
                 {
-                    var k = rend.Next(startPos, endPos);
-                    return k;
+                    var randomNum = rend.Next(startPos, endPos);
+                    return randomNum;
                 }
                 catch (Exception ex)
                 {
